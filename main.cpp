@@ -26,7 +26,6 @@ int main () {
                 tictactoe.changePlayerOneSolution (row, column);
                 tictactoe.outputGrid ();
             } while (goOn == false);
-            // check for win
         }
 
         else {
@@ -42,7 +41,6 @@ int main () {
                 tictactoe.changePlayerTwoSolution (row, column);
                 tictactoe.outputGrid ();
             } while (goOn == false);
-            // check for win
         }
         bool win = false;
         win = tictactoe.checkPlayerOneWin (row, column);
