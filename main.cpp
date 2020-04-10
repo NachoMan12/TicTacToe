@@ -13,10 +13,9 @@ int main () {
     tictactoe.outputGrid ();
 
     for (int i = 0; i < tictactoe.getMaxFields (); ++i) {
-
+        int row;
+        int column;
         if (i % 2 == 0) {
-            int row;
-            int column;
 
             do {
                 std::cout << "Spieler 1 ist an der Reihe" << std::endl;
@@ -28,13 +27,7 @@ int main () {
                 tictactoe.outputGrid ();
             } while (goOn == false);
             // check for win
-            bool win = false;
-            win = tictactoe.checkPlayerTwoWin (row, column);
-            if (win == true) {
-                break;
-            }
         }
-
 
         else {
             int row;
@@ -50,15 +43,18 @@ int main () {
                 tictactoe.outputGrid ();
             } while (goOn == false);
             // check for win
-            bool win2 = false;
-            win2 = tictactoe.checkPlayerTwoWin (row, column);
-            if (win2 == true) {
-                break;
-            }
+        }
+        bool win = false;
+        win = tictactoe.checkPlayerOneWin (row, column);
+        if (win == true) {
+            break;
+        }
+        bool win2 = false;
+        win2 = tictactoe.checkPlayerTwoWin (row, column);
+        if (win2 == true) {
+            break;
         }
     }
 
     std::cout << "Das Spiel ist aus" << std::endl << std::endl;
 }
-
-// This is a test
