@@ -55,14 +55,23 @@ bool TicTacToe::checkPlayerOneWin (int row, int column) {
     --row;
     --column;
 
-    // waagerecht
-    int countOfWin = 0;
+    // vertical
+    int countOfVertical = 0;
     for (int i = 0; i < columns; ++i) {
         if (grid[row][i] == 'X') {
-            ++countOfWin;
+            ++countOfVertical;
         }
     }
-    if (countOfWin >= 3) {
+
+    // perpendicular
+    int countOfPerpendicular = 0;
+    for (int i = 0; i < rows; ++i) {
+        if (grid[i][column] == 'X') {
+            ++countOfPerpendicular;
+        }
+    }
+
+    if (countOfVertical >= 3 || countOfPerpendicular >= 3) {
         return true;
     }
     else {
@@ -75,13 +84,22 @@ bool TicTacToe::checkPlayerTwoWin (int row, int column) {
     --column;
 
     // waagerecht
-    int countOfWin = 0;
+    int countOfVertical = 0;
     for (int i = 0; i < columns; ++i) {
         if (grid[row][i] == 'O') {
-            ++countOfWin;
+            ++countOfVertical;
         }
     }
-    if (countOfWin >= 3) {
+
+    // perpendicular
+    int countOfPerpendicular = 0;
+    for (int i = 0; i < rows; ++i) {
+        if (grid[i][column] == 'O') {
+            ++countOfPerpendicular;
+        }
+    }
+
+    if (countOfVertical >= 3 || countOfPerpendicular >= 3) {
         return true;
     }
     else {
