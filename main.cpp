@@ -13,39 +13,20 @@ int main () {
     tictactoe.outputGrid ();
 
     for (int i = 0; i < tictactoe.getMaxFields (); ++i) {
+        char player = (i % 2)? 'X' : 'O';
         int row;
         int column;
-        if (i % 2 == 0) {
-
-            do {
-                std::cout << "Spieler 1 ist an der Reihe" << std::endl;
-                std::cout << "Zeile: ";
-                std::cin >> row;
-                std::cout << "Spalte: ";
-                std::cin >> column;
-                tictactoe.changePlayerOneSolution (row, column);
-                tictactoe.outputGrid ();
-            } while (!goOn);
-        }
-
-        else {
-            int row;
-            int column;
-            do {
-
-                std::cout << "Spieler 2 ist an der Reihe" << std::endl;
-                std::cout << "Zeile: ";
-                std::cin >> row;
-                std::cout << "Spalte: ";
-                std::cin >> column;
-                tictactoe.changePlayerTwoSolution (row, column);
-                tictactoe.outputGrid ();
-            } while (goOn == false);
-        }
-        if (tictactoe.checkPlayerOneWin (row, column)) {
-            break;
-        }
-        if (tictactoe.checkPlayerTwoWin (row, column)) {
+        do {
+            std::cout << "Spieler 1 ist an der Reihe" << std::endl;
+            std::cout << "Zeile: ";
+            std::cin >> row;
+            std::cout << "Spalte: ";
+            std::cin >> column;
+            tictactoe.changePlayerSolution (row, column, player);
+            tictactoe.outputGrid ();
+        } while (!goOn);
+        
+        if (tictactoe.checkPlayerWin (row, column, player)) {
             break;
         }
     }
