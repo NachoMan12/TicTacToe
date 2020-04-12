@@ -23,7 +23,7 @@ void TicTacToe::outputGrid () {
     std::cout << std::endl;
 }
 
-void TicTacToe::changePlayerOneSolution (int row, int column) {
+void TicTacToe::changePlayerSolution (int row, int column, char player) {
     row -= 1;
     column -= 1;
 
@@ -32,77 +32,8 @@ void TicTacToe::changePlayerOneSolution (int row, int column) {
         goOn = false;
     }
     else {
-        grid[row][column] = 'X';
+        grid[row][column] = player;
         goOn = true;
     }
 }
 
-void TicTacToe::changePlayerTwoSolution (int row, int column) {
-    row -= 1;
-    column -= 1;
-
-    if (grid[row][column] == 'X' || grid[row][column] == 'O') {
-        std::cout << "Das Feld ist schon belegt" << std::endl;
-        goOn = false;
-    }
-    else {
-        grid[row][column] = 'O';
-        goOn = true;
-    }
-}
-
-bool TicTacToe::checkPlayerOneWin (int row, int column) {
-    --row;
-    --column;
-
-    // vertical
-    int countOfVertical = 0;
-    for (int i = 0; i < columns; ++i) {
-        if (grid[row][i] == 'X') {
-            ++countOfVertical;
-        }
-    }
-
-    // perpendicular
-    int countOfPerpendicular = 0;
-    for (int i = 0; i < rows; ++i) {
-        if (grid[i][column] == 'X') {
-            ++countOfPerpendicular;
-        }
-    }
-
-    if (countOfVertical >= 3 || countOfPerpendicular >= 3) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-bool TicTacToe::checkPlayerTwoWin (int row, int column) {
-    --row;
-    --column;
-
-    // waagerecht
-    int countOfVertical = 0;
-    for (int i = 0; i < columns; ++i) {
-        if (grid[row][i] == 'O') {
-            ++countOfVertical;
-        }
-    }
-
-    // perpendicular
-    int countOfPerpendicular = 0;
-    for (int i = 0; i < rows; ++i) {
-        if (grid[i][column] == 'O') {
-            ++countOfPerpendicular;
-        }
-    }
-
-    if (countOfVertical >= 3 || countOfPerpendicular >= 3) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
