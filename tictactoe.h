@@ -28,10 +28,8 @@ class TicTacToe {
 
     void initializeGrid ();
     void outputGrid ();
-    void changePlayerOneSolution (int row, int column);
-    void changePlayerTwoSolution (int row, int column);
-    bool checkPlayerOneWin (int row, int columns);
-    bool checkPlayerTwoWin (int row, int columns);
+    void changePlayerSolution (int row, int column, char player);
+    bool checkPlayerOneWin (int row, int columns, char player);
 
     private:
     int rows;
