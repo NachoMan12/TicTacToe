@@ -25,7 +25,7 @@ int main () {
                 std::cin >> column;
                 tictactoe.changePlayerOneSolution (row, column);
                 tictactoe.outputGrid ();
-            } while (goOn == false);
+            } while (!goOn);
         }
 
         else {
@@ -42,14 +42,10 @@ int main () {
                 tictactoe.outputGrid ();
             } while (goOn == false);
         }
-        bool win = false;
-        win = tictactoe.checkPlayerOneWin (row, column);
-        if (win == true) {
+        if (tictactoe.checkPlayerOneWin (row, column)) {
             break;
         }
-        bool win2 = false;
-        win2 = tictactoe.checkPlayerTwoWin (row, column);
-        if (win2 == true) {
+        if (tictactoe.checkPlayerTwoWin (row, column)) {
             break;
         }
     }
